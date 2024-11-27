@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro Interactivo | LLP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="img/libro-cubierta-abierta.png" type="image/x-icon">
+</head>
+<body>
+    <div class="book">
+        <button id="prevBtn" class="nav-button">⟨</button>
+        <div id="pages">
+            <!-- Ejemplo de página 1 -->
+            <div class="page active" data-page="1">
+                <img src="img/portada.jpg" alt="Página 1">
+            </div>
+            <div class="page" data-page="2">
+                <img src="img/indice.jpg" alt="Página 2">
+            </div>
+            <div class="page" data-page="2">
+                <img src="img/introduccion.jpg" alt="Página 3">
+                <!-- Botón invisible -->
+                <button class="hidden-button" id="button1"><span class="button-icon">👉</span> Hacer clic aquí👈</button>
+                <!-- Contenedor para el texto -->
+                <div class="popup-text" id="popupText1"><p>Animación: Secuencia de imágenes o ilustraciones que dan movimiento.<br><br>Audio: Música, efectos de sonidos o grabación de voz.<br><br>Imagen: Aportan contenido visual.<br><br>Texto: Elementos básico para trasmitir información clara.<br><br>Video: Combinación de imágenes en movimiento y sonido.</p></div>
+            </div>
+            <div class="page" data-page="2">
+                <img src="img/herramientas.jpg" alt="Página 4">
+            </div>
+            <div class="page" data-page="2">
+                <img src="img/tipos_multimedia.jpg" alt="Página 5">
+                <img src="img/tipos_de_multimedia.jpg" alt="Imagen centrada" class="inner-image">
+                <button class="hidden-button" id="button4"><span class="button-icon">👉</span> Hacer clic aquí👈</button>
+                <button class="hidden-button" id="button5"><span class="button-icon">👉</span> Hacer clic aquí👈</button>
+                <button class="hidden-button" id="button6"><span class="button-icon">👉</span> Hacer clic aquí👈</button>
+                <button class="hidden-button" id="button7"><span class="button-icon">👉</span> Hacer clic aquí👈</button>
+                <button class="hidden-button" id="button8"><span class="button-icon">👉</span> Hacer clic aquí👈</button>
+                <button class="hidden-button" id="button9"><span class="button-icon">👉</span> Hacer clic aquí👈</button>
+                <div class="popup-text4" id="popupText4"><p>Texto:<br><br>Sin formatear, formateando, lineal e hipertexto.</p></div>
+                <div class="popup-text5" id="popupText5"><p>Gráficos:<br><br>Utilizados para representar esquemas, planos, dibujos lineales.</p></div>
+                <div class="popup-text6" id="popupText6"><p>Imágenes:<br><br>Son documentos formados por píxeles, Pueden generarse por copia del entorno (escaneado, fotografía digital) y tiene a ser ficheros muy voluminosos.</p></div>
+                <div class="popup-text7" id="popupText7"><p>Animaciones:<br><br>Presentación de un número de gráficos por segundo que generan movimientos.</p></div>
+                <div class="popup-text8" id="popupText8"><p>Vídeos:<br><br>Presentación de un numero de imágenes por segundos, que crean la sensación de movimiento, pueden ser sintetizadas o captadas.</p></div>
+                <div class="popup-text9" id="popupText9"><p>Sonido:<br><br>Puede ser habla, música u otros sonidos.</p></div>
+            </div>
+            <div class="page" data-page="2">
+                <img src="img/diseños.jpg" alt="Página 6">
+                <button class="hidden-button" id="button2"><span class="button-icon">👉</span> Hacer clic aquí👈</button>
+                <button class="hidden-button" id="button3"><span class="button-icon">👉</span> Hacer clic aquí👈</button>
+                <div class="popup-text2" id="popupText2"><p>Diseño Gráfico: El diseño gráfico consiste en proyectar comunicaciones visuales destinadas a grupos sociales con objetivos determinados.</p></div>
+                <div class="popup-text3" id="popupText3"><p>Diseño Visual: El diseño visual es un nicho mas especializado dentro del diseño grafico y consiste en el desarrollo del UI.</p></div>
+            </div>
+            <div class="page" data-page="2">
+                <img src="img/hdiferencias.jpg" alt="Página 7">
+                <div class="card-container">
+                    <!-- Tarjeta 1 -->
+                    <div class="card" id="card1">
+                        <div class="card-front2">
+                            <img2 src="img/diferencias.jpg" alt="Imagen 1">
+                        </div>
+                        <div class="card-back2">
+                            <p>Diseño Grafico: Se enfoca en la creación 
+                                de elementos gráficos para transmitir un mensaje de 
+                                forma estética. Utiliza herramientas y técnicas para 
+                                crear logotipos, tipografías, ilustraciones, material
+                                publicitario entre otros.<br><br>Diseño Visual: Abarca todos los aspectos de la apariencia 
+                                de una interfaz o producto digital. Se centra en como los 
+                                elementos interactúan entre si en un espacio visual.</p>
+                        </div>
+                    </div>
+            
+                    <!-- Tarjeta 2 -->
+                    <div class="card" id="card2">
+                        <div class="card-front3">
+                            <img3 src="img/1.jpg" alt="Imagen 2">
+                        </div>
+                        <div class="card-back3">
+                            <p>Diseño Grafico: Aunque este diseño pueda contribuir con UI
+                                a través de elementos agradables y efectivos, sus 
+                                función principal es la comunicación visual.
+                                <br><br>Diseño Visual: Esta profundamente ligado a la experiencia
+                                del usuario y su enfoque es mas integral y orientado a la
+                                interfaz, asegurando que los elementos no sean solo atractivos
+                                si no también intuitivos y funcionales.</p>
+                        </div>
+                    </div>
+            
+                    <!-- Tarjeta 3 -->
+                    <div class="card" id="card3">
+                        <div class="card-front4">
+                            <img4 src="img/2.jpg" alt="Imagen 3">
+                        </div>
+                        <div class="card-back4">
+                            <p>Diseño Grafico: Se aplica a medios impresos (Revistas, Poster,
+                                Empaques) y digitales (Banner, Redes Sociales). Utiliza
+                                herramientas como Adobe Illistrator, Photoshop e InDesing.
+                                <br><br>Diseño Visual: Aplica mayormente a entornos digitales y es
+                                común en aplicaciones, sitios web y productos interactivos,
+                                Las herramientas incluyen Figma, Sketch y Adobe, donde se integra
+                                aspectos de UI en el proceso de diseño.</p>
+                        </div>
+                    </div>
+            
+                    <!-- Tarjeta 4 -->
+                    <div class="card" id="card4">
+                        <div class="card-front5">
+                            <img5 src="img/3.jpg" alt="Imagen 4">
+                        </div>
+                        <div class="card-back5">
+                            <p>Diseño Grafico: Persuadir, informar y captar la intención 
+                                mediante el uso estético de los elementos visuales.
+                                <br><br>Diseño Visual: Crear una experiencia coherente e intuitiva 
+                                para el usuario, donde la estética visual y navegación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <div class="page" data-page="2">
+                <img src="img/final.jpg" alt="Página 8">
+            </div>
+        </div>
+        <button id="nextBtn" class="nav-button">⟩</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

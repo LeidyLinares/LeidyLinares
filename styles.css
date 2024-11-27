@@ -1,0 +1,520 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.book {
+    position: relative;
+    width: 650px;
+    height: 900px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+#pages {
+    flex: 1;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.page {
+    min-width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    position: relative;
+}
+
+.page img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.page.active {
+    display: flex;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 50%;
+}
+
+#prevBtn {
+    left: 10px;
+}
+
+#nextBtn {
+    right: 10px;
+}
+
+.nav-button:disabled {
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: not-allowed;
+}
+
+/* Botón invisible */
+.hidden-button {
+    position: absolute;
+    width: auto; /* Ajusta según el contenido */
+    height: auto; /* Ajusta
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    cursor: pointer;
+    z-index: 10;
+    font-size: 16px; /* Tamaño del texto */
+    color: rgb(0, 0, 0); /* Color del texto */
+    display: flex; /* Para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 8px; /* Espacio entre icono y texto */
+    padding: 2px 10px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+/* Posición inicial del botón */
+#button1 {
+    top: 825px; /* Ajusta según donde quieras que esté */
+    left: 63px;
+}
+
+#button2 {
+    top: 400px; /* Ajusta según donde quieras que esté */
+    left: 80px;
+}
+
+#button3 {
+    top: 400px; /* Ajusta según donde quieras que esté */
+    left: 400px;
+}
+
+/* Estilo del texto emergente */
+.popup-text {
+    position: absolute;
+    top: 660px; /* Centra el texto en la página */
+    left: 153px;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0, 0, 0); /* Fondo semitransparente */
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    display: none; /* Oculto por defecto */
+    z-index: 15;
+    width: 230px;
+}
+
+/* Estilo del texto emergente */
+.popup-text2 {
+    position: absolute;
+    top: 700px; /* Centra el texto en la página */
+    left: 185px;
+    transform: translate(-50%, -50%);
+    background-color: none; /* Fondo semitransparente */
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    display: none; /* Oculto por defecto */
+    z-index: 15;
+    width: 230px;
+}
+
+/* Estilo del texto emergente */
+.popup-text3 {
+    position: absolute;
+    top: 690px; /* Centra el texto en la página */
+    left: 500px;
+    transform: translate(-50%, -50%);
+    background-color: none; /* Fondo semitransparente */
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    display: none; /* Oculto por defecto */
+    z-index: 15;
+    width: 230px;
+}
+
+/* Imagen contenedora */
+.outer-image {
+    display: block; /* Hace que la imagen ocupe su propio espacio */
+    width: 100%; /* Ajusta el ancho según el contenedor o el tamaño deseado */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+
+/* Imagen que estará centrada dentro de la imagen exterior */
+.inner-image {
+    position: absolute; /* La posicionamos absolutamente dentro del contenedor */
+    top: 600px; /* Centra la imagen verticalmente */
+    left: 325px; /* Centra la imagen horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para que se centre exactamente */
+    max-width: 50%; /* Controla el tamaño de la imagen interior */
+    max-height: 50%; /* Controla el tamaño de la imagen interior */
+    object-fit: contain; /* Mantiene la proporción de la imagen */
+}
+
+/* Contenedor de las tarjetas */
+.card-container {
+    position: absolute; /* Para superponer las tarjetas encima de la imagen */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa el mismo ancho de la página */
+    height: 100%; /* Ocupa el mismo alto de la página */
+    pointer-events: none; /* Para que los clics atraviesen el contenedor, excepto las tarjetas */
+}
+
+/* Estilo base para cada tarjeta */
+.card {
+    position: absolute; /* Ubicadas dentro del contenedor relativo */
+    width: 200px;
+    height: 300px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10; /* Garantiza que estén sobre el resto del contenido */
+    pointer-events: auto; /* Habilitar clics en las tarjetas */
+}
+
+/* Personalización de las posiciones de las tarjetas */
+#card1 {
+    top: 310px;
+    left: 50px;
+}
+
+#card2 {
+    top: 330px;
+    left: 330px;
+}
+
+#card3 {
+    top: 630px;
+    left: 40px;
+}
+
+#card4 {
+    top: 630px;
+    left: 350px;
+}
+
+/* Estructura de la tarjeta (frontal y trasera) */
+.card-front2,
+.card-back2 {
+    position: absolute;
+    width: 250px;
+    height: 280px;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Estructura de la tarjeta (frontal y trasera) */
+.card-front3,
+.card-back3 {
+    position: absolute;
+    width: 270px;
+    height: 260px;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Estructura de la tarjeta (frontal y trasera) */
+.card-front4,
+.card-back4 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Estructura de la tarjeta (frontal y trasera) */
+.card-front5,
+.card-back5 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Imagen en el frente */
+.card-front2 img2 {
+    width: none;
+    height: none;
+    object-fit: cover;
+}
+
+/* Parte trasera (texto) */
+.card-back2 {
+    background-color: #34495e;
+    color: white;
+    font-size: 15.2px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: rotateY(180deg);
+}
+
+/* Imagen en el frente */
+.card-front3 img3 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Parte trasera (texto) */
+.card-back3 {
+    background-color: #34495e;
+    color: white;
+    font-size: 15.5px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: rotateY(180deg);
+}
+
+/* Imagen en el frente */
+.card-front4 img4 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Parte trasera (texto) */
+.card-back4 {
+    background-color: #34495e;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: rotateY(180deg);
+}
+
+/* Imagen en el frente */
+.card-front5 img5 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Parte trasera (texto) */
+.card-back5 {
+    background-color: #34495e;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: rotateY(180deg);
+}
+
+/* Efecto de giro de la tarjeta */
+.card.flipped .card-front2 {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-back2 {
+    transform: rotateY(0);
+}
+
+/* Efecto de giro de la tarjeta */
+.card.flipped .card-front3 {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-back3 {
+    transform: rotateY(0);
+}
+/* Efecto de giro de la tarjeta */
+.card.flipped .card-front4 {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-back4 {
+    transform: rotateY(0);
+}
+/* Efecto de giro de la tarjeta */
+.card.flipped .card-front5 {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-back5 {
+    transform: rotateY(0);
+}
+
+/* Estilo del texto emergente */
+.popup-text4 {
+    position: absolute;
+    top: 400px; /* Centra el texto en la página */
+    left: 200px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    display: none; /* Oculto por defecto */
+    z-index: 15;
+    width: 230px;
+}
+
+#button4 {
+    top: 580px; /* Ajusta según donde quieras que esté */
+    left: 135px;
+    font-size: 9px;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+
+/* Estilo del texto emergente */
+.popup-text5 {
+    position: absolute;
+    top: 390px; /* Centra el texto en la página */
+    left: 350px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    display: none; /* Oculto por defecto */
+    z-index: 15;
+    width: 230px;
+}
+
+#button5 {
+    top: 580px; /* Ajusta según donde quieras que esté */
+    left: 270px;
+    font-size: 9px;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+
+/* Estilo del texto emergente */
+.popup-text6 {
+    position: absolute;
+    top: 370px; /* Centra el texto en la página */
+    left: 500px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    display: none; /* Oculto por defecto */
+    z-index: 15;
+    width: 230px;
+}
+
+#button6 {
+    top: 580px; /* Ajusta según donde quieras que esté */
+    left: 404px;
+    font-size: 9px;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+
+/* Estilo del texto emergente */
+.popup-text7 {
+    position: absolute;
+    top: 825px; /* Centra el texto en la página */
+    left: 200px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    display: none; /* Oculto por defecto */
+    z-index: 15;
+    width: 230px;
+}
+
+#button7 {
+    top: 750px; /* Ajusta según donde quieras que esté */
+    left: 135px;
+    font-size: 9px;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+
+/* Estilo del texto emergente */
+.popup-text8 {
+    position: absolute;
+    top: 850px; /* Centra el texto en la página */
+    left: 350px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    display: none; /* Oculto por defecto */
+    z-index: 15;
+    width: 230px;
+}
+
+#button8 {
+    top: 750px; /* Ajusta según donde quieras que esté */
+    left: 270px;
+    font-size: 9px;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+
+/* Estilo del texto emergente */
+.popup-text9 {
+    position: absolute;
+    top: 825px; /* Centra el texto en la página */
+    left: 500px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    display: none; /* Oculto por defecto */
+    z-index: 15;
+    width: 230px;
+}
+
+#button9 {
+    top: 750px; /* Ajusta según donde quieras que esté */
+    left: 405px;
+    font-size: 9px;
+}
